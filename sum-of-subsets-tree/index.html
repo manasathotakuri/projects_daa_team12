@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sum of Subsets - State Space Tree</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <p class="eyebrow">DESIGN AND ANALYSIS OF ALGORITHMS</p>
+      <h1>Sum of Subsets</h1>
+      <p class="subtitle">State Space Tree using Inclusion and Exclusion</p>
+    </header>
+
+    <section class="problem-card">
+      <div><span class="label">SET</span><strong>{5, 10, 12}</strong></div>
+      <div><span class="label">TARGET SUM</span><strong>15</strong></div>
+      <div><span class="label">VALID SUBSET</span><strong class="answer">{5, 10}</strong></div>
+    </section>
+
+    <section class="controls">
+      <p>Each level considers one number. Choose <b>Include</b> or <b>Exclude</b>.</p>
+      <button id="showAllBtn" type="button">Show full tree</button>
+      <button id="resetBtn" type="button" class="secondary">Reset</button>
+    </section>
+
+    <section class="tree-card" aria-label="State space tree diagram">
+      <div class="tree-scroll">
+        <svg id="tree" viewBox="0 0 1000 600" role="img" aria-label="State space tree for target sum 15"></svg>
+      </div>
+      <div class="legend">
+        <span><i class="dot solution"></i> Solution (sum = 15)</span>
+        <span><i class="dot dead"></i> Not a solution</span>
+        <span><i class="dot active"></i> Branch decision</span>
+      </div>
+    </section>
+
+    <section class="explanation">
+      <h2>How to read the tree</h2>
+      <ol>
+        <li>Start with sum <b>0</b> and an empty subset.</li>
+        <li>At each level, branch into <b>Include</b> the current number or <b>Exclude</b> it.</li>
+        <li>If the sum becomes <b>15</b>, a solution is found.</li>
+        <li>The subset <b>{5, 10}</b> gives 5 + 10 = 15. The other branches do not reach the target.</li>
+      </ol>
+      <p class="result"><b>Result:</b> The subset that satisfies the target sum is <b>{5, 10}</b>.</p>
+    </section>
+    <footer>Mini Project · Sum of Subsets · HTML, CSS and JavaScript</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
