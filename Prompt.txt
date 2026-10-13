@@ -1,0 +1,10 @@
+AI VISUALIZATION PROMPT
+
+Create a clear educational diagram for the Greedy Job Sequencing with Deadlines algorithm. Show these stages from left to right:
+1. Input jobs with their IDs, deadlines, and profits.
+2. Sort jobs by descending profit.
+3. For each job, search backward for the latest empty time slot that does not exceed its deadline.
+4. Show accepted jobs in the time-slot schedule and skipped jobs separately.
+5. Show the final total profit.
+
+Use arrows between stages, readable labels, a clean academic style, and a light background. Ensure all job IDs and numerical values are legible. For the sample jobs a(2,100), b(1,19), c(2,27), d(1,25), e(3,15), show the final schedule a, c, e and total profit 142.

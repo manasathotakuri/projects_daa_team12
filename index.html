@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project 4 - Job Sequencing with Deadlines</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="eyebrow">DAA MACRO PROJECT · UNIT 4</div>
+    <h1>Job Sequencing with Deadlines</h1>
+    <p>A Greedy Algorithm Visualizer</p>
+  </header>
+
+  <main class="container">
+    <section class="panel intro">
+      <h2>How it works</h2>
+      <p>Each job has a deadline and a profit. The algorithm sorts jobs by profit (highest first), then places each job in the latest available time slot before its deadline. The goal is to maximize total profit.</p>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div><h2>Job inputs</h2><p class="muted">Edit the jobs or load the sample.</p></div>
+        <button id="sampleBtn" class="secondary">Load sample</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Job ID</th><th>Deadline</th><th>Profit</th><th></th></tr></thead>
+          <tbody id="jobsBody"></tbody>
+        </table>
+      </div>
+      <div class="controls">
+        <button id="addBtn" class="secondary">+ Add job</button>
+        <button id="runBtn">Run algorithm</button>
+        <button id="resetBtn" class="ghost">Reset</button>
+      </div>
+      <p class="hint">Use unique job IDs, positive integer deadlines, and non-negative profits.</p>
+      <p id="error" class="error" role="alert"></p>
+    </section>
+
+    <section class="panel results" id="resultsPanel">
+      <div class="section-heading"><div><h2>Visualization</h2><p class="muted">Run the algorithm to see each decision.</p></div><span id="status" class="status">Ready</span></div>
+      <div id="steps" class="steps empty">Your algorithm steps will appear here.</div>
+      <h3>Time-slot schedule</h3>
+      <div id="schedule" class="schedule empty">No schedule yet.</div>
+      <div class="summary">
+        <div><span>Total profit</span><strong id="totalProfit">—</strong></div>
+        <div><span>Jobs scheduled</span><strong id="jobsScheduled">—</strong></div>
+        <div><span>Time slots used</span><strong id="slotsUsed">—</strong></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Algorithm pseudocode</h2>
+      <pre><code>JobSequencing(jobs):
+  Sort jobs by profit in descending order
+  maxDeadline = maximum deadline among jobs
+  Create empty time slots from 1 to maxDeadline
+  For each job in sorted jobs:
+    For slot = min(job.deadline, maxDeadline) down to 1:
+      If slot is empty:
+        Schedule job in slot
+        Add job.profit to total profit
+        Break
+  Return schedule and total profit</code></pre>
+      <h2 class="subhead">Complexity</h2>
+      <p><strong>Time:</strong> O(n log n + nD), where n is the number of jobs and D is the maximum deadline.</p>
+      <p><strong>Space:</strong> O(D) for the time-slot schedule, excluding the input and sorting storage.</p>
+    </section>
+
+    <section class="panel">
+      <h2>AI visualization prompt</h2>
+      <p class="prompt">Create a clean educational diagram for the Greedy Job Sequencing with Deadlines algorithm. Show jobs sorted by descending profit, assigning each job to the latest free time slot before its deadline, and the resulting schedule and total profit. Use clear labels, arrows, and a simple classroom-friendly style.</p>
+      <button id="copyPromptBtn" class="secondary">Copy prompt</button>
+      <p class="hint">For submission, use this prompt with an AI image-generation tool and save its generated diagram as <code>Visualization.png</code>.</p>
+    </section>
+  </main>
+  <footer>DAA Macro Project · Project 4 · Job Sequencing with Deadlines</footer>
+  <script src="script.js"></script>
+</body>
+</html>
