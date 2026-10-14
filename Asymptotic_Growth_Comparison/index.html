@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asymptotic Growth Comparison</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <p class="eyebrow">ALGORITHM ANALYSIS • MINI PROJECT</p>
+    <h1>Asymptotic Growth Comparison</h1>
+    <p>Explore Big-O, Big-Ω, and Big-Θ with growth functions and algorithm examples.</p>
+  </header>
+
+  <main>
+    <section class="intro panel">
+      <h2>Concept Map</h2>
+      <p class="muted">As input size <strong>n</strong> increases, asymptotic notation describes how an algorithm's running time grows.</p>
+      <div class="concept-map">
+        <div class="root">Asymptotic Analysis</div>
+        <div class="branches">
+          <article class="concept big-o">
+            <div class="symbol">O(g(n))</div><h3>Big-O</h3>
+            <p><strong>Upper bound</strong> — growth does not exceed this order asymptotically.</p>
+            <div class="example"><b>Example:</b> Linear search worst case</div>
+            <code>O(n)</code>
+          </article>
+          <article class="concept big-omega">
+            <div class="symbol">Ω(g(n))</div><h3>Big-Omega</h3>
+            <p><strong>Lower bound</strong> — growth is at least this order asymptotically.</p>
+            <div class="example"><b>Example:</b> Linear search best case</div>
+            <code>Ω(1)</code>
+          </article>
+          <article class="concept big-theta">
+            <div class="symbol">Θ(g(n))</div><h3>Big-Theta</h3>
+            <p><strong>Tight bound</strong> — upper and lower bounds have the same order.</p>
+            <div class="example"><b>Example:</b> Visiting every array element</div>
+            <code>Θ(n)</code>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div><h2>Growth Function Explorer</h2><p class="muted">Select an input size to compare common growth rates.</p></div>
+        <label>Input size n
+          <select id="nSelect">
+            <option value="5">5</option><option value="10" selected>10</option>
+            <option value="20">20</option><option value="50">50</option><option value="100">100</option>
+          </select>
+        </label>
+      </div>
+      <div class="chart-wrap"><canvas id="growthChart" aria-label="Growth function comparison chart"></canvas></div>
+      <div id="growthValues" class="growth-values"></div>
+      <p class="note">Values are illustrative operation counts, not exact runtime measurements. The chart uses a logarithmic vertical scale so fast-growing functions remain comparable.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Algorithms and Typical Complexity</h2>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Growth</th><th>Example algorithm / operation</th><th>Why?</th></tr></thead>
+          <tbody>
+            <tr><td><span class="pill constant">O(1)</span></td><td>Access an array element</td><td>One direct access, independent of n.</td></tr>
+            <tr><td><span class="pill logarithmic">O(log n)</span></td><td>Binary search</td><td>Search range is halved each step.</td></tr>
+            <tr><td><span class="pill linear">O(n)</span></td><td>Linear search</td><td>May inspect each element.</td></tr>
+            <tr><td><span class="pill nlogn">O(n log n)</span></td><td>Merge sort</td><td>Logarithmic levels process n elements.</td></tr>
+            <tr><td><span class="pill quadratic">O(n²)</span></td><td>Two nested loops</td><td>About n × n iterations.</td></tr>
+            <tr><td><span class="pill exponential">O(2ⁿ)</span></td><td>Naive recursive subset generation</td><td>Choices can double for each added item.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel takeaway">
+      <h2>Remember</h2>
+      <div class="remember-grid">
+        <div><strong>Big-O</strong><span>Upper bound</span></div>
+        <div><strong>Big-Ω</strong><span>Lower bound</span></div>
+        <div><strong>Big-Θ</strong><span>Tight bound</span></div>
+      </div>
+      <p>For large inputs, constant factors and smaller terms are ignored when describing asymptotic growth.</p>
+    </section>
+  </main>
+  <footer>Asymptotic Growth Comparison • Student Mini Project</footer>
+  <script src="script.js"></script>
+</body>
+</html>
